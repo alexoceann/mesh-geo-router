@@ -1,0 +1,19 @@
+---
+manifest_version: "1"
+name: geo_router
+integrity:
+  network_seed: ~
+  properties: ~
+  origin_time: 1703940420328044
+  zomes:
+    - name: geo_data_integrity
+      hash: ~
+      bundled: "../../../target/wasm32-unknown-unknown/release/geo_data_integrity.wasm"
+      dependencies: ~
+coordinator:
+  zomes:
+    - name: geo_data
+      hash: ~
+      bundled: "../../../target/wasm32-unknown-unknown/release/geo_data.wasm"
+      dependencies:
+        - name: geo_data_integrity

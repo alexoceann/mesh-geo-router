@@ -1,0 +1,19 @@
+---
+manifest_version: "1"
+name: mesh-geo-router
+description: ~
+roles:
+  - name: geo_router
+    provisioning:
+      strategy: create
+      deferred: false
+    dna:
+      bundled: "../dnas/geo_router/workdir/geo_router.dna"
+      modifiers:
+        network_seed: ~
+        properties: ~
+        origin_time: ~
+        quantum_time: ~
+      installed_hash: ~
+      _version: ~
+      clone_limit: 0
