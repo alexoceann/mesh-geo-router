@@ -3,6 +3,7 @@
   import type { ActionHash, AppAgentClient } from '@holochain/client';
   import { AppAgentWebsocket } from '@holochain/client';
   import '@material/mwc-circular-progress';
+  import FindLocation from './geo_router/geo_data/FindLocation.svelte';
 
   import { clientContext } from './contexts';
 
@@ -29,34 +30,55 @@
       <mwc-circular-progress indeterminate />
     </div>
   {:else}
-    <div id="content" style="display: flex; flex-direction: column; flex: 1;">
-      <h2>mesh-geo-router</h2>
+    <div id="content">
+      
 
+        
    
-      <ol>
-        <li>Import the elements with:
-        <pre>
-import AllTodos from './todos/todos/AllTodos.svelte';
-import CreateTodo from './todos/todos/CreateTodo.svelte';
-        </pre>
-        </li>
-        <li>Replace this "EDIT ME!" section with <code>&lt;CreateTodo&gt;&lt;/CreateTodo&gt;&lt;AllTodos&gt;&lt;/AllTodos&gt;</code>.</li>
-        </ol>
+      <header class="header">
+        <h1>mesh geo router</h1>
+      </header>
+
+      <section class="sidebar"></section>
+
+      <section class="main">
+        <FindLocation></FindLocation>
+      </section>
+
     </div>
   {/if}
 </main>
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+  #content {
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 
+      "header header"
+      "side main";
+  }
+
+  .main {
+    background-color: var(--teal-8);
+    grid-area: main;
   }
 
   @media (min-width: 640px) {
-    main {
+    .main {
       max-width: none;
     }
+  }
+
+  .header {
+    background-color: var(--yellow-6);
+    grid-area: header;
+  }
+
+  .sidebar {
+    background-color: var(--purple-5);
+    grid-area: side;
   }
 </style>
